@@ -7,6 +7,10 @@ pipeline {
 
     stages {
         stage('Terraform Plan') {
+            steps{
+                echo 'hello world '
+                echo 'hello world ${env.CHANGE_TARGET}'
+            }
             when {
                 expression {
                     env.CHANGE_TARGET == 'main'
