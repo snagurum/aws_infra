@@ -9,7 +9,7 @@ pipeline {
         stage('Terraform Plan') {
             steps{
                 echo 'hello world '
-                echo 'hello world pull request test.... branch test4'
+                echo 'hello world pull request test.... branch test4   *****'
                 echo 'hello world ${env.CHANGE_TARGET}'
             }
             when {
