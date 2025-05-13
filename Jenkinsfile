@@ -8,9 +8,9 @@ pipeline {
     stages {
         stage('Terraform Plan Initial') {
             steps {
-                echo 'hello world'
                 echo 'hello world pull request test.... branch test5 *****'
-                echo "hello world CHANGE_TARGET = ${env.CHANGE_TARGET}"  // fixed syntax
+                echo "hello world CHANGE_TARGET = ${env.CHANGE_TARGET}"  
+                sh 'printenv' // Linux/Unix
             }
         }
 
