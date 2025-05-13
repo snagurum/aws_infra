@@ -27,6 +27,7 @@ pipeline {
             }
             steps {
                 sh '''
+                  ls -lah
                   terraform init
                   terraform plan
                 '''
