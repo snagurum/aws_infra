@@ -11,6 +11,7 @@ pipeline {
                 echo 'hello world'
                 echo 'hello world pull request test.... branch test5 *****'
                 echo "hello world CHANGE_TARGET = ${env.CHANGE_TARGET}"  // fixed syntax
+                sh 'printenv'
             }
         }
 
