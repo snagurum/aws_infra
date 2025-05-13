@@ -31,6 +31,8 @@ pipeline {
             steps {
                 sh '''
                   ls -lah
+                  cd live/dev
+                  ls -lah
                   terraform init
                   terraform plan
                 '''
