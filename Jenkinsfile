@@ -33,6 +33,7 @@ pipeline {
                   ls -lah
                   cd live/dev
                   ls -lah
+                  terraform -v
                   terraform init
                   terraform plan
                 '''
