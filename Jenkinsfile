@@ -1,5 +1,8 @@
 pipeline {
     agent any
+    tools {
+       terraform 'terraform-1.11.4'
+    }
 
     environment {
         TF_IN_AUTOMATION = "true"
@@ -28,6 +31,9 @@ pipeline {
             steps {
                 sh '''
                   ls -lah
+                  cd live/dev
+                  ls -lah
+                  terraform -v
                   terraform init
                   terraform plan
                 '''
