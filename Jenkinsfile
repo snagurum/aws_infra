@@ -12,8 +12,8 @@ pipeline {
         stage('Terraform Plan Initial') {
             steps {
                 echo "CHANGE_ID: ${env.CHANGE_ID}, CHANGE_TARGET: ${env.CHANGE_TARGET}, CHANGE_BRANCH: ${env.CHANGE_BRANCH}"
-                sh  terraform -v
-                sh printenv            // Linux/Unix 
+                sh  'terraform -v'
+                sh 'printenv'            // Linux/Unix 
             }
         }
 
