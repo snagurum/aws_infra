@@ -29,8 +29,8 @@ pipeline {
                 sh '''
                   cd live/dev
                   ls -lah
-                  terraform init
-                  terraform plan
+                  terraform -chdir live/dev init
+                  terraform -chdir live/dev plan
                 '''
             }
         }
