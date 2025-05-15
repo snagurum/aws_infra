@@ -12,22 +12,11 @@ pipeline {
         stage('Terraform Plan Initial') {
             steps {
                 echo "CHANGE_ID: ${env.CHANGE_ID}, CHANGE_TARGET: ${env.CHANGE_TARGET}, CHANGE_BRANCH: ${env.CHANGE_BRANCH}"
-<<<<<<< Updated upstream
-                sh  'terraform -v'
-                sh 'printenv'            // Linux/Unix 
-=======
-<<<<<<< Updated upstream
-                sh '''
-                  terraform -v
-                   printenv' // Linux/Unix
-                '''
-=======
                 sh  'terraform -v'
                 sh  'cd live/dev'
                 sh  'terraform init'
                 sh 'printenv'            // Linux/Unix 
->>>>>>> Stashed changes
->>>>>>> Stashed changes
+
             }
         }
 
@@ -41,17 +30,7 @@ pipeline {
             steps {
                 sh '''
                   cd live/dev
-<<<<<<< Updated upstream
-                  ls -lah
-<<<<<<< Updated upstream
-                  terraform  init
-                  terraform  plan
-=======
-                  terraform init
-=======
->>>>>>> Stashed changes
                   terraform plan
->>>>>>> Stashed changes
                 '''
             }
         }
