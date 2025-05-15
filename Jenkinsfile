@@ -14,7 +14,7 @@ pipeline {
                 echo "CHANGE_ID: ${env.CHANGE_ID}, CHANGE_TARGET: ${env.CHANGE_TARGET}, CHANGE_BRANCH: ${env.CHANGE_BRANCH}"
                 sh '''
                   terraform -v
-                   printenv' // Linux/Unix
+                  printenv // Linux/Unix
                 '''
             }
         }
