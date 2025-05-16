@@ -32,6 +32,18 @@ pipeline {
                 '''
             }
         }
+
+        stage('Terraform Apply on Develop') {
+            when {
+                branch 'main'
+            }
+            steps {
+                sh '''
+                    cd live/dev
+                    terraform apply -auto-approve
+                '''
+            }
+        }
     }
 }
 
