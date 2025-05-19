@@ -20,7 +20,8 @@ pipeline {
         stage('Terraform Plan') {
             when {
                 expression {
-                    return env.CHANGE_TARGET == 'main'  // fixed: added `return`
+                        //return env.CHANGE_TARGET == 'main'
+                        branch pattern: "PR-\\d+-head", comparator: "REGEXP"
                 }
             }
             steps {
@@ -40,6 +41,8 @@ pipeline {
             steps {
                 sh '''
                     cd live/dev
+                    terraform  init
+                    terraform plan
                     terraform apply -auto-approve
                 '''
             }
