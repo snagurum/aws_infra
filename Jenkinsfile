@@ -39,14 +39,28 @@ pipeline {
                 branch 'main'
             }
             steps {
-                sh '''
-                    cd live/dev
-                    terraform  init
-                    terraform plan
-                    terraform apply -auto-approve
-                '''
-            }
-        }
-    }
+//                sh '''
+//                    cd live/dev
+//                    terraform  init
+//                    terraform plan
+//                    terraform apply -auto-approve
+//                '''
+                 script{
+                        def terraformPlanOutput = sh(script: '''
+                                cd live/dev
+                                terraform init
+                                terraform apply -auto-approve
+                                ''', returnStdout: true).trim()
+                        echo "Terraform Apply Output:\n${terraformPlanOutput}"
+                        def terraformApplyOutput = sh(script: '''
+                                cd live/dev
+                                terraform apply -auto-approve
+                                ''', returnStdout: true).trim()
+                        echo "Terraform Apply Output:\n${terraformApplyOutput}"
+                
+                }
+           }
+      }
+   }   
 }
 
