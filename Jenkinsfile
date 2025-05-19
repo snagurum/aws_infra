@@ -25,12 +25,15 @@ pipeline {
                 }
             }
             steps {
-                sh '''
-                  cd live/dev
-                  ls -lah
-                  terraform  init
-                  terraform  plan
-                '''
+                 script{
+                        echo "************************** Terraform Plan **************************"
+                        def terraformPlanOutput = sh(script: '''
+                                cd live/dev
+                                terraform init
+                                terraform plan  -no-color
+                                ''', returnStdout: true).trim()
+                        echo "Terraform plan Output:\n${terraformPlanOutput}"
+                 }       
             }
         }
 
