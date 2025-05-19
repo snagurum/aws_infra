@@ -46,12 +46,14 @@ pipeline {
 //                    terraform apply -auto-approve
 //                '''
                  script{
+                        echo "************************** Terraform Plan **************************"
                         def terraformPlanOutput = sh(script: '''
                                 cd live/dev
                                 terraform init
                                 terraform plan  -no-color
                                 ''', returnStdout: true).trim()
-                        echo "Terraform Apply Output:\n${terraformPlanOutput}"
+                        echo "Terraform plan Output:\n${terraformPlanOutput}"
+                        echo "************************** Terraform Apply **************************"
                         def terraformApplyOutput = sh(script: '''
                                 cd live/dev
                                 terraform apply -auto-approve  -no-color
