@@ -8,5 +8,5 @@ resource "random_uuid" "test" {
 
 output "uuid" {
   description = "uuid"
-  value       = try(random_uuid.id, null)
+  value       = try(random_uuid.test.id, null)
 }
