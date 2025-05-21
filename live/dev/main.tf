@@ -6,7 +6,9 @@ resource "local_file" "foo" {
 resource "random_uuid" "test" {
 }
 
-output "uuid" {
-  description = "uuid"
-  value       = try(random_uuid.test.id, null)
+
+resource "tls_private_key" "my_private_key" {
+  algorithm = "RSA"
+  rsa_bits  = 2048
 }
+
